@@ -2,3 +2,9 @@ EyeMindApp/node_modules/*
 EyeMindApp/extra/object-diagram-modeler/node_modules/*
 EyeTrackingServer/out/logs/
 EyeMindApp/outputData/
+EyeMindApp/app.js
+EyeMindApp/app.js.map
+EyeMindApp/css/
+EyeMindApp/icons/
+EyeMindApp/vendor/
+EyeMindApp/index.html
