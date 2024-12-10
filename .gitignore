@@ -4,7 +4,7 @@ EyeTrackingServer/out/logs/
 EyeMindApp/outputData/
 EyeMindApp/app.js
 EyeMindApp/app.js.map
-EyeMindApp/css/
-EyeMindApp/icons/
-EyeMindApp/vendor/
+EyeMindApp/public/vendor/
+EyeMindApp/public/css/
+EyeMindApp/public/icons/
 EyeMindApp/index.html
