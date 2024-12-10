@@ -1,10 +1,15 @@
+# Ignore node_modules directories
 EyeMindApp/node_modules/*
 EyeMindApp/extra/object-diagram-modeler/node_modules/*
+
+# Ignore logs and output data 
 EyeTrackingServer/out/logs/
 EyeMindApp/outputData/
+
+# Ignore build artifacts
 EyeMindApp/app.js
 EyeMindApp/app.js.map
-EyeMindApp/public/vendor/
-EyeMindApp/public/css/
-EyeMindApp/public/icons/
 EyeMindApp/index.html
+
+# Ignore the entire public directory and its contents
+EyeMindApp/public/
