@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create a new sensor for a specific respondent in a study.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for uploadSensorData {imotionsApi}"><tr><td>uploadSensorData {imotionsApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create a new sensor for a specific respondent in a study.</h2>
+
+<h3>Description</h3>
+
+<p>Either signals (with a Timestamp column) or metrics (single values, with no Timestamp) can be uploaded.
+After processing, the sensor can then be viewed and exported locally through the iMotions Desktop.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+uploadSensorData(
+  params,
+  study,
+  data,
+  target,
+  sensorName,
+  scriptName,
+  metadata = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>params</code></td>
+<td>
+<p>The list of parameters provided to the script - specific parameters value will be stored as metadata.</p>
+</td></tr>
+<tr valign="top"><td><code>study</code></td>
+<td>
+<p>An imStudy object as returned from <code><a href="imStudy.html">imStudy</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>A data.table containing the signals/metrics to upload (imData object are also accepted).</p>
+</td></tr>
+<tr valign="top"><td><code>target</code></td>
+<td>
+<p>The target respondent for the sensor (an imRespondent object as returned from
+<code><a href="getRespondents.html">getRespondents</a></code>).</p>
+</td></tr>
+<tr valign="top"><td><code>sensorName</code></td>
+<td>
+<p>The name of the new sensor you would like to create.</p>
+</td></tr>
+<tr valign="top"><td><code>scriptName</code></td>
+<td>
+<p>The name of the script used to produce these signals/metrics.</p>
+</td></tr>
+<tr valign="top"><td><code>metadata</code></td>
+<td>
+<p>Optional - a data.table with metadata information. Column names will be converted to metadata headers
+and there must be a row corresponding to each data column.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Params required field are &quot;iMotionsVersion&quot; and &quot;flowName&quot;
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connection &lt;- imotionsApi::imConnection("xxxxxxxx")
+studies &lt;- imotionsApi::listStudies(connection)
+study &lt;- imotionsApi::imStudy(connection, studies$id[1])
+respondents &lt;- imotionsApi::getRespondents(study)
+data &lt;- data.frame("Timestamp" = seq(1:100), "Thresholded value" = rep(0, 100))
+params &lt;- list("iMotionsVersion" = 8, "flowName" = "Test")
+uploadSensorData(params, study, data, respondents[1, ], "New sensor", "Example Script")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsApi</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: List samples available for a given respondent for a stimulus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for listRespondentSamples {imotionsData}"><tr><td>listRespondentSamples {imotionsData}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>List samples available for a given respondent for a stimulus</h2>
+
+<h3>Description</h3>
+
+<p>A sample is a record of data about a given respondent concerning a given stimulus. The data
+for a sample can get retrieved using imotionsData::getSampleData or imotionsData::getSampleDataFilePath.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+listRespondentSamples(connection, studyId, stimulusId, respondentId)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>As returned from connect function.</p>
+</td></tr>
+<tr valign="top"><td><code>studyId</code></td>
+<td>
+<p>The study id</p>
+</td></tr>
+<tr valign="top"><td><code>stimulusId</code></td>
+<td>
+<p>The stimulus for which you would like to list samples.</p>
+</td></tr>
+<tr valign="top"><td><code>respondentId</code></td>
+<td>
+<p>The respondent to query</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Respondents for a given stimuli can be found using imotionsData::listStimulusRespondents
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame containing the samples collected for a respondent from
+a stimulus within this study.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+studies &lt;- imotionsData::listStudies(connection)
+studyId &lt;- studies$id[1]
+stimuli &lt;- imotionsData::listStimuli(connection, studyId)
+stimulusId &lt;- stimuli$id[1]
+respondents &lt;- imotionsData::listStimulusRespondents(connection, studyId, stimulusId)
+samples &lt;- imotionsData::listRespondentSamples(connection, studyId, stimulusId, respondents$id[1])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsData</em> version 1.8.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

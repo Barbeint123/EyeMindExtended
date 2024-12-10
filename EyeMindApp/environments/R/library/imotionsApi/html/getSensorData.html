@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Download data corresponding to a specific sensor...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getSensorData {imotionsApi}"><tr><td>getSensorData {imotionsApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Download data corresponding to a specific sensor (signals/metrics).</h2>
+
+<h3>Description</h3>
+
+<p>Available sensors in your study can be listed using the <code><a href="getRespondentSensors.html">getRespondentSensors</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getSensorData(study, sensor, signalsName = NULL, intervals = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>study</code></td>
+<td>
+<p>An imStudy object as returned from <code><a href="imStudy.html">imStudy</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>sensor</code></td>
+<td>
+<p>An imSensor object as returned from <code><a href="getRespondentSensors.html">getRespondentSensors</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>signalsName</code></td>
+<td>
+<p>Optional: A vector of specific signals name you would like to return.</p>
+</td></tr>
+<tr valign="top"><td><code>intervals</code></td>
+<td>
+<p>Optional: An imInterval or imIntervalList object with start/end of data to subset as given by
+<code><a href="getRespondentIntervals.html">getRespondentIntervals</a></code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Signals always have a &quot;Timestamp&quot; column and are unique to a given respondent and a given sensor source.
+Metrics are stored as a special sensor, also specific to a given respondent.
+</p>
+
+
+<h3>Value</h3>
+
+<p>An imData object (data.table) containing the signals (imSignals) or metrics (imMetrics) for the sensor of
+interest.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connection &lt;- imotionsApi::imConnection("xxxxxxxx")
+studies &lt;- imotionsApi::listStudies(connection)
+study &lt;- imotionsApi::imStudy(connection, studies$id[1])
+respondents &lt;- imotionsApi::getRespondents(study)
+sensors &lt;- imotionsApi::getRespondentSensors(study, respondents[1, ])
+data &lt;- imotionsApi::getSensorData(study, sensors[1, ])
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsApi</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

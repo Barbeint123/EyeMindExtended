@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Downloads a sample as a tab-delimited file.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getSampleDataFilePath {imotionsData}"><tr><td>getSampleDataFilePath {imotionsData}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Downloads a sample as a tab-delimited file.</h2>
+
+<h3>Description</h3>
+
+<p>Consume the file from your tool of choice, for example readr or data.table.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getSampleDataFilePath(
+  connection,
+  studyId,
+  stimulusId,
+  respondentId = NULL,
+  segmentId = NULL,
+  sampleId
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>As returned from connect function.</p>
+</td></tr>
+<tr valign="top"><td><code>studyId</code></td>
+<td>
+<p>The study id</p>
+</td></tr>
+<tr valign="top"><td><code>stimulusId</code></td>
+<td>
+<p>The stimulus for which you would like to load data</p>
+</td></tr>
+<tr valign="top"><td><code>respondentId</code></td>
+<td>
+<p>The respondent to query (only if segmentId = NULL)</p>
+</td></tr>
+<tr valign="top"><td><code>segmentId</code></td>
+<td>
+<p>The segment to query (only if respondentId = NULL)</p>
+</td></tr>
+<tr valign="top"><td><code>sampleId</code></td>
+<td>
+<p>The sample to query</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Samples can be listed using the listSampleSources and listRespondentSamples functions.
+</p>
+<p>Samples are a portion of the data collected for a given respondent during exposure to a stimuli, from
+a given sample source.
+</p>
+
+
+<h3>Value</h3>
+
+<p>The path to the file in question on your local hard-disk.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+studies &lt;- imotionsData::listStudies(connection)
+studyId &lt;- studies$id[1]
+stimuli &lt;- imotionsData::listStimuli(connection, studyId)
+stimulus &lt;- stimuli[1,]
+respondents &lt;- imotionsData::listStimulusRespondents(connection, studyId, stimulus$id)
+sampleSources &lt;- imotionsData::listSampleSources(connection, studyId, stimulus$id)
+sampleFilePath &lt;- imotionsData::getSampleDataFilePath(connection, studyId, stimulus$id, sampleSources$name[1], respondents$id[1])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsData</em> version 1.8.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

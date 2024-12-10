@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: List stimuli within study</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for listStimuli {imotionsData}"><tr><td>listStimuli {imotionsData}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>List stimuli within study</h2>
+
+<h3>Description</h3>
+
+<p>More detailed information about a stimulus can be retrieved using imotionsData::getStimulus.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+listStimuli(connection, studyId)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>As returned from connect function.</p>
+</td></tr>
+<tr valign="top"><td><code>studyId</code></td>
+<td>
+<p>The study id</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Studies can be found with imotionsData::listStudies.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame containing the names and ids of stimuli within this study.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+studies &lt;- imotionsData::listStudies(connection)
+stimuli &lt;- imotionsData::listStimuli(connection, studies$id[1])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsData</em> version 1.8.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

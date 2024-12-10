@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1akuxcc" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:collaboration id="Collaboration_13jczkl">
+    <bpmn:participant id="Participant_0rhur10" name="Notify Invovled Parties of Main Book Rejection" processRef="Process_04seowt" />
+    <bpmn:participant id="Participant_1h4zkdh" name="Free Notary" />
+    <bpmn:participant id="Participant_0vvg9rs" name="Bank" />
+    <bpmn:messageFlow id="Flow_1pz2zjx" sourceRef="Activity_1dcqqao" targetRef="Participant_0vvg9rs" />
+    <bpmn:messageFlow id="Flow_0e9flbe" sourceRef="Activity_19ww8q0" targetRef="Participant_1h4zkdh" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_04seowt" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_05zjyam</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_0b91xga" name="Notary System?">
+      <bpmn:incoming>Flow_17mgdnh</bpmn:incoming>
+      <bpmn:outgoing>Flow_16mihyq</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0od286g</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_13c06l4">
+      <bpmn:incoming>Flow_0pua7je</bpmn:incoming>
+      <bpmn:incoming>Flow_0od286g</bpmn:incoming>
+      <bpmn:outgoing>Flow_13z3jms</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_0cvg53w">
+      <bpmn:incoming>Flow_13z3jms</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sendTask id="Activity_19ww8q0" name="Notify Free Notary of Main Book Rejection">
+      <bpmn:incoming>Flow_16mihyq</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pua7je</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="Flow_05zjyam" sourceRef="StartEvent_1" targetRef="Activity_1dcqqao" />
+    <bpmn:sequenceFlow id="Flow_17mgdnh" sourceRef="Activity_1dcqqao" targetRef="Gateway_0b91xga" />
+    <bpmn:sequenceFlow id="Flow_16mihyq" name="Free Notary" sourceRef="Gateway_0b91xga" targetRef="Activity_19ww8q0" />
+    <bpmn:sequenceFlow id="Flow_0pua7je" sourceRef="Activity_19ww8q0" targetRef="Gateway_13c06l4" />
+    <bpmn:sequenceFlow id="Flow_13z3jms" sourceRef="Gateway_13c06l4" targetRef="Event_0cvg53w" />
+    <bpmn:sequenceFlow id="Flow_0od286g" name="Land Register Notary" sourceRef="Gateway_0b91xga" targetRef="Gateway_13c06l4" />
+    <bpmn:sendTask id="Activity_1dcqqao" name="Notify Bank of Main Book Rejection">
+      <bpmn:incoming>Flow_05zjyam</bpmn:incoming>
+      <bpmn:outgoing>Flow_17mgdnh</bpmn:outgoing>
+    </bpmn:sendTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_13jczkl">
+      <bpmndi:BPMNShape id="Participant_0rhur10_di" bpmnElement="Participant_0rhur10" isHorizontal="true">
+        <dc:Bounds x="129" y="202" width="739" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0od286g_di" bpmnElement="Flow_0od286g">
+        <di:waypoint x="450" y="352" />
+        <di:waypoint x="450" y="410" />
+        <di:waypoint x="710" y="410" />
+        <di:waypoint x="710" y="352" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="465" y="376" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13z3jms_di" bpmnElement="Flow_13z3jms">
+        <di:waypoint x="735" y="327" />
+        <di:waypoint x="792" y="327" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pua7je_di" bpmnElement="Flow_0pua7je">
+        <di:waypoint x="630" y="327" />
+        <di:waypoint x="685" y="327" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16mihyq_di" bpmnElement="Flow_16mihyq">
+        <di:waypoint x="475" y="327" />
+        <di:waypoint x="530" y="327" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="473" y="309" width="59" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17mgdnh_di" bpmnElement="Flow_17mgdnh">
+        <di:waypoint x="370" y="327" />
+        <di:waypoint x="425" y="327" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05zjyam_di" bpmnElement="Flow_05zjyam">
+        <di:waypoint x="215" y="327" />
+        <di:waypoint x="270" y="327" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="309" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0b91xga_di" bpmnElement="Gateway_0b91xga" isMarkerVisible="true">
+        <dc:Bounds x="425" y="302" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="410" y="278" width="79" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_13c06l4_di" bpmnElement="Gateway_13c06l4" isMarkerVisible="true">
+        <dc:Bounds x="685" y="302" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0cvg53w_di" bpmnElement="Event_0cvg53w">
+        <dc:Bounds x="792" y="309" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14xkfki_di" bpmnElement="Activity_19ww8q0">
+        <dc:Bounds x="530" y="287" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1rt90zh_di" bpmnElement="Activity_1dcqqao">
+        <dc:Bounds x="270" y="287" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_1h4zkdh_di" bpmnElement="Participant_1h4zkdh" isHorizontal="true">
+        <dc:Bounds x="129" y="80" width="739" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_0vvg9rs_di" bpmnElement="Participant_0vvg9rs" isHorizontal="true">
+        <dc:Bounds x="129" y="510" width="739" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1pz2zjx_di" bpmnElement="Flow_1pz2zjx">
+        <di:waypoint x="320" y="367" />
+        <di:waypoint x="320" y="510" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e9flbe_di" bpmnElement="Flow_0e9flbe">
+        <di:waypoint x="580" y="287" />
+        <di:waypoint x="580" y="140" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

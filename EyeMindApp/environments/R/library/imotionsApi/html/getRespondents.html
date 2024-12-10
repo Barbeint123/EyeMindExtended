@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get respondents from a study.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getRespondents {imotionsApi}"><tr><td>getRespondents {imotionsApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get respondents from a study.</h2>
+
+<h3>Description</h3>
+
+<p>Generic getRespondents function that take as parameter a study object and optionally a stimulus and/or segment
+object.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getRespondents(study, stimulus = NULL, segment = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>study</code></td>
+<td>
+<p>An imStudy object as returned from <code><a href="imStudy.html">imStudy</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>stimulus</code></td>
+<td>
+<p>Optional - An imStimulus object as returned from <code><a href="getStimuli.html">getStimuli</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>segment</code></td>
+<td>
+<p>Optional - An imSegment object as returned from <code><a href="getSegments.html">getSegments</a></code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An imRespondentList object (data.table) with all respondents of interest.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connection &lt;- imotionsApi::imConnection("xxxxxxxx")
+studies &lt;- imotionsApi::listStudies(connection)
+study &lt;- imotionsApi::imStudy(connection, studies$id[1])
+stimuli &lt;- imotionsApi::getStimuli(study)
+segments &lt;- imotionsApi::getSegments(study)
+
+## Get all respondents in the study
+respondents &lt;- imotionsApi::getRespondents(study)
+
+## Get all respondents exposed to a specific stimulus
+respondents &lt;- imotionsApi::getRespondents(study, stimulus = stimuli[1, ])
+
+## Get all respondents in a specific segment
+respondents &lt;- imotionsApi::getRespondents(study, segment = segments[1, ])
+
+## Get all respondents in a specific segment exposed to a specific stimulus
+respondents &lt;- imotionsApi::getRespondents(study, stimulus = stimuli[1, ], segment = segments[1, ])
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsApi</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

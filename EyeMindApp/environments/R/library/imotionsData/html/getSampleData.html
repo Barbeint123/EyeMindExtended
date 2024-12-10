@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Downloads a sample as a data.frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getSampleData {imotionsData}"><tr><td>getSampleData {imotionsData}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Downloads a sample as a data.frame</h2>
+
+<h3>Description</h3>
+
+<p>Available samples in your study can be listed using the listSampleSources and listRespondentSamples functions.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getSampleData(
+  connection,
+  studyId,
+  stimulusId,
+  respondentId = NULL,
+  segmentId = NULL,
+  sampleId,
+  signals = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>As returned from connect function.</p>
+</td></tr>
+<tr valign="top"><td><code>studyId</code></td>
+<td>
+<p>The study of interest</p>
+</td></tr>
+<tr valign="top"><td><code>stimulusId</code></td>
+<td>
+<p>The stimulus of interest</p>
+</td></tr>
+<tr valign="top"><td><code>respondentId</code></td>
+<td>
+<p>The respondent to query (only if segmentId = NULL)</p>
+</td></tr>
+<tr valign="top"><td><code>segmentId</code></td>
+<td>
+<p>The segment to query (only if respondentId = NULL)</p>
+</td></tr>
+<tr valign="top"><td><code>sampleId</code></td>
+<td>
+<p>The sample to query</p>
+</td></tr>
+<tr valign="top"><td><code>signals</code></td>
+<td>
+<p>Optional: A vector of signals you would like to return in the data.frame</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>To get access to sample data directly as a tab-delimited file, use imotionsData::getSampleDataFilePath.
+</p>
+<p>Samples are a portion of the data gathered for a given respondent during exposure to a stimuli, from
+a given sample source.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data.frame containing the sample in question.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+studies &lt;- imotionsData::listStudies(connection)
+studyId &lt;- studies$id[1]
+stimuli &lt;- imotionsData::listStimuli(connection, studyId)
+stimulus &lt;- stimuli[1,]
+respondents &lt;- imotionsData::listStimuliRespondents(connection, studyId, stimulus$id)
+sampleSources &lt;- imotionsData::listSampleSources(connection, studyId, stimulus$id)
+sampleData &lt;- imotionsData::getSampleData(connection, studyId, stimulus$id, respondentId = respondents$id[1],
+ sampleId = sampleSources$id[1])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsData</em> version 1.8.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

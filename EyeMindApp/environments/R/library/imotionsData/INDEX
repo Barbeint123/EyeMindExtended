@@ -1,0 +1,40 @@
+connectRemote           Authenticates token with the iMotions API.
+getSampleData           Downloads a sample as a data.frame
+getSampleDataFilePath   Downloads a sample as a tab-delimited file.
+getStimulus             Get stimulus information
+getStudy                Get study by id
+getStudyId              Retrieves the id of a study given its name
+getUploadSampleDataUrl
+                        Gets the endpoint url for a stimulus and a
+                        respondent (or segment)
+imotionsData-package    iMotions Data Library
+listLoadedStudies       Lists the studies that have been loaded in the
+                        current session
+listRespondentSamples   List samples available for a given respondent
+                        for a stimulus
+listRespondents         List the respondents in a study
+listSampleRespondents   List the samples and corresponding respondent
+                        id's for a stimulus
+listSampleSources       List sample sources for a stimuli
+listSegmentSamples      List samples available for a given segment for
+                        a stimulus
+listSegments            List the segments in a study
+listStimuli             List stimuli within study
+listStimulusRespondents
+                        List the respondents that were shown a specific
+                        stimulus.
+listStudies             List studies
+privateUploadSampleDataFile
+                        Uploads sample data for a given stimulus and a
+                        respondent (or segment).
+stopSubjectNotApplicable
+                        Indicate that R markdown knitting should be
+                        stopped since the current
+                        stimulus/respondent/segment is not applicable
+                        to this notebook.
+unloadStudies           Unloads the studies that have been loaded in
+                        the current session
+uploadSampleData        Creates a new Sample for a stimuli and
+                        respondent (or segment) pair in a study. Can
+                        upload both signals (with a TimeStamp column)
+                        or metrics (single values, with no TimeStamp)

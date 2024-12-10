@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Uploads sample data for a given stimulus and a respondent (or...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for privateUploadSampleDataFile {imotionsData}"><tr><td>privateUploadSampleDataFile {imotionsData}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Uploads sample data for a given stimulus and a respondent (or segment).</h2>
+
+<h3>Description</h3>
+
+<p>Uploads sample data for a given stimulus and a respondent (or segment).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+privateUploadSampleDataFile(
+  connection,
+  dataFileName,
+  signalNames,
+  stimulus,
+  endpoint,
+  sampleName,
+  isMetric,
+  overwrite
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>As returned from connect function</p>
+</td></tr>
+<tr valign="top"><td><code>dataFileName</code></td>
+<td>
+<p>The data file containing the signals or metrics to upload</p>
+</td></tr>
+<tr valign="top"><td><code>signalNames</code></td>
+<td>
+<p>Names of the signals or metrics</p>
+</td></tr>
+<tr valign="top"><td><code>stimulus</code></td>
+<td>
+<p>A stimulus</p>
+</td></tr>
+<tr valign="top"><td><code>endpoint</code></td>
+<td>
+<p>A respondent or a segment</p>
+</td></tr>
+<tr valign="top"><td><code>sampleName</code></td>
+<td>
+<p>The name for the new sample</p>
+</td></tr>
+<tr valign="top"><td><code>isMetric</code></td>
+<td>
+<p>logical indicating that the data being uploaded is a metric</p>
+</td></tr>
+<tr valign="top"><td><code>overwrite</code></td>
+<td>
+<p>Overwrite if a sample with the same name exists.</p>
+</td></tr>
+</table>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsData</em> version 1.8.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

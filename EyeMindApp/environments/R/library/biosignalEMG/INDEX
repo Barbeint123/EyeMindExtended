@@ -1,0 +1,26 @@
+ANDP                    Measure the quality of an automatic on/off
+                        detection
+as.emg                  Coerce to an 'emg' object
+biosignalEMG-package    Tools for Electromyogram Signals (EMG) Analysis
+dcbiasremoval           Remove the DC bias
+eaemg                   Ensemble-averaged EMG
+emg                     EMG object
+emg95306000             Sample EMG data from a decorticate cat
+emg96627009             Sample EMG data from a decorticate cat (4
+                        channels)
+envelope                RMS or MA Envelope of an EMG
+extractchannel          Extracts a single channel from a multichannel
+                        'emg' object
+highpass                Highpass filter an EMG signal
+integration             Integration of an EMG
+loadABF1                Imports data in the Axon(TM) ABF format v1.0
+lowpass                 Lowpass filter an EMG signal
+movingaverage           Moving average of an EMG
+onoff_bonato            Automatic on/off detection algorithm based on a
+                        double threshold scheme
+onoff_singlethres       Automatic on/off detection algorithm based on a
+                        simple threshold rule
+phasestats              local statistics of each phase on an EMG (beta)
+rectification           Full-wave and half-wave rectification of an EMG
+syntheticemg            Synthetic EMG
+whitening               Decorrelates an EMG signal

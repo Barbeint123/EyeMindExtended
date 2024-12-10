@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_15w2vxn" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:collaboration id="Collaboration_0thna1p">
+    <bpmn:participant id="Participant_1id68j6" name="Generate and Append Return Cover Sheets" processRef="Process_031nkeu" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_031nkeu" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0mgxqv8</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_08ap8qv">
+      <bpmn:incoming>Flow_123hpbc</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:dataObjectReference id="DataObjectReference_1e93pg3" name="Document&#10;[unsigned]" dataObjectRef="DataObject_07o0chu" />
+    <bpmn:dataObject id="DataObject_07o0chu" />
+    <bpmn:dataObjectReference id="DataObjectReference_0hlihov" name="Return Cover Sheet Document" dataObjectRef="DataObject_1ix3gfl" />
+    <bpmn:dataObject id="DataObject_1ix3gfl" />
+    <bpmn:serviceTask id="Activity_18g9yhr" name="Generate Return Cover Sheets">
+      <bpmn:incoming>Flow_0mgxqv8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ugcsq2</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_1csz2v5">
+        <bpmn:targetRef>DataObjectReference_0hlihov</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0d2qnrt" name="Merge Documents">
+      <bpmn:incoming>Flow_0ugcsq2</bpmn:incoming>
+      <bpmn:outgoing>Flow_123hpbc</bpmn:outgoing>
+      <bpmn:property id="Property_0hx4cvu" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_1kl0xws">
+        <bpmn:sourceRef>DataObjectReference_1e93pg3</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0hx4cvu</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataInputAssociation id="DataInputAssociation_1505ow0">
+        <bpmn:sourceRef>DataObjectReference_0hlihov</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0hx4cvu</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_0ah4bd2">
+        <bpmn:targetRef>DataObjectReference_1e93pg3</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0mgxqv8" sourceRef="StartEvent_1" targetRef="Activity_18g9yhr" />
+    <bpmn:sequenceFlow id="Flow_0ugcsq2" sourceRef="Activity_18g9yhr" targetRef="Activity_0d2qnrt" />
+    <bpmn:sequenceFlow id="Flow_123hpbc" sourceRef="Activity_0d2qnrt" targetRef="Event_08ap8qv" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0thna1p">
+      <bpmndi:BPMNShape id="Participant_1id68j6_di" bpmnElement="Participant_1id68j6" isHorizontal="true">
+        <dc:Bounds x="160" y="52" width="620" height="280" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0mgxqv8_di" bpmnElement="Flow_0mgxqv8">
+        <di:waypoint x="265" y="230" />
+        <di:waypoint x="320" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ugcsq2_di" bpmnElement="Flow_0ugcsq2">
+        <di:waypoint x="420" y="230" />
+        <di:waypoint x="500" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_123hpbc_di" bpmnElement="Flow_123hpbc">
+        <di:waypoint x="600" y="230" />
+        <di:waypoint x="662" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="229" y="212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_08ap8qv_di" bpmnElement="Event_08ap8qv">
+        <dc:Bounds x="662" y="212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_1e93pg3_di" bpmnElement="DataObjectReference_1e93pg3">
+        <dc:Bounds x="532" y="95" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="524" y="65.5" width="51" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0hlihov_di" bpmnElement="DataObjectReference_0hlihov">
+        <dc:Bounds x="432" y="95" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="409" y="152" width="83" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_01b417o_di" bpmnElement="Activity_18g9yhr">
+        <dc:Bounds x="320" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_02nlaul_di" bpmnElement="Activity_0d2qnrt">
+        <dc:Bounds x="500" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_0ah4bd2_di" bpmnElement="DataOutputAssociation_0ah4bd2">
+        <di:waypoint x="560" y="190" />
+        <di:waypoint x="559" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1kl0xws_di" bpmnElement="DataInputAssociation_1kl0xws">
+        <di:waypoint x="540" y="145" />
+        <di:waypoint x="540" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1csz2v5_di" bpmnElement="DataOutputAssociation_1csz2v5">
+        <di:waypoint x="370" y="190" />
+        <di:waypoint x="370" y="120" />
+        <di:waypoint x="432" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1505ow0_di" bpmnElement="DataInputAssociation_1505ow0">
+        <di:waypoint x="468" y="120" />
+        <di:waypoint x="520" y="120" />
+        <di:waypoint x="520" y="190" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

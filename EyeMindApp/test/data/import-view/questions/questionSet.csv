@@ -1,0 +1,7 @@
+id,question,type,options,model-group
+1,It is possible to move the mortgage to main depot in an offline land registry system with no nominee bank,multiple-choice,True;False;I don't know,1
+2,It is possible to move the mortgage to the main depot if the number of land registers is above 1,multiple-choice,True;False;I don't know,1
+3,Cover sheets are required in an online land registry system,multiple-choice,True;False;I don't know,1
+4,Is it possible to create a credit card without rating the customer?,multiple-choice,Yes;No;I don't know,2
+5,Does the checking of the customer nationality on the sections list happen before evaluating the ID document,multiple-choice,Yes;No;I don't know,2
+6,Is it possible to match ID data with customer data then read personal data from ID Copy,multiple-choice,Yes;No;I don't know,2

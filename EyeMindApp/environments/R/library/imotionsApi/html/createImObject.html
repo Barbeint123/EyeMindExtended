@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Create an iMotions object.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createImObject {imotionsApi}"><tr><td>createImObject {imotionsApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Create an iMotions object.</h2>
+
+<h3>Description</h3>
+
+<p>Based on a data.table and the type of object wanted, create an imObject or imObjectList.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createImObject(data, typeOfObject)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>data</code></td>
+<td>
+<p>a list/data.frame that needs to be changed into an iMotions object.</p>
+</td></tr>
+<tr valign="top"><td><code>typeOfObject</code></td>
+<td>
+<p>a string that specifies the type of object wanted (&quot;Stimulus&quot;,&quot;Respondent&quot;, &quot;Segment&quot;, &quot;Sensor&quot;,
+&quot;Interval&quot;).</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An iMotions object of the specified type (data.table).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+object &lt;- list(name = "example")
+respondentsObject &lt;- imotionsApi:::createImObject(object, "Respondent")
+stimuliObject &lt;- imotionsApi:::createImObject(object, "Stimulus")
+segmentsObject &lt;- imotionsApi:::createImObject(object, "Segment")
+sensorsObject &lt;- imotionsApi:::createImObject(object, "Sensor")
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsApi</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

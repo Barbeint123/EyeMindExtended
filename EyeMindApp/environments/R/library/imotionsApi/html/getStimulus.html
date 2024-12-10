@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get a specific stimulus from a study.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getStimulus {imotionsApi}"><tr><td>getStimulus {imotionsApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get a specific stimulus from a study.</h2>
+
+<h3>Description</h3>
+
+<p>Available stimuli can be found with <code><a href="getStimuli.html">getStimuli</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getStimulus(study, stimulusId)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>study</code></td>
+<td>
+<p>An imStudy object as returned from <code><a href="imStudy.html">imStudy</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>stimulusId</code></td>
+<td>
+<p>The id of the stimulus you would like to retrieve.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An imStimulus object (data.table) containing the stimulus of interest.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connection &lt;- imotionsApi::imConnection("xxxxxxxx")
+studies &lt;- imotionsApi::listStudies(connection)
+study &lt;- imotionsApi::imStudy(connection, studies$id[1])
+stimuli &lt;- imotionsApi::getStimuli(study)
+stimulus &lt;- imotionsApi::getStimulus(study, stimuli$id[1])
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsApi</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0r7lgos" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:collaboration id="main">
+    <bpmn:participant id="Participant_1tccln7" name="Issue Credit Card" processRef="Process_1xou3zo" />
+    <bpmn:participant id="Participant_0p22tuj" name="Customer" />
+    <bpmn:participant id="Participant_0a4v14d" name="Credit Card Master System" />
+    <bpmn:participant id="Participant_01n3llv" name="Address Directory" />
+    <bpmn:participant id="Participant_0jpde85" name="Customer Management System" />
+    <bpmn:participant id="Participant_0geq9if" name="Output Management System" />
+    <bpmn:messageFlow id="Flow_0fhqmoz" sourceRef="Participant_0p22tuj" targetRef="StartEvent_1" />
+    <bpmn:messageFlow id="Flow_0z4ua8d" sourceRef="Event_01f06hl" targetRef="Participant_0p22tuj" />
+    <bpmn:messageFlow id="Flow_18fs2uw" sourceRef="_3_validate-and-rate-customer.bpmn" targetRef="Participant_01n3llv" />
+    <bpmn:messageFlow id="Flow_0egihi2" sourceRef="_4_create-credit-card.bpmn" targetRef="Participant_0a4v14d" />
+    <bpmn:messageFlow id="Flow_1iz1ue0" sourceRef="_2_create-prospect.bpmn" targetRef="Participant_0jpde85" />
+    <bpmn:messageFlow id="Flow_1sim41h" sourceRef="_1_check-whether-existing-customer.bpmn" targetRef="Participant_0jpde85" />
+    <bpmn:messageFlow id="Flow_14ttfpv" sourceRef="_5_send-credit-card-information.bpmn" targetRef="Participant_0geq9if" />
+    <bpmn:messageFlow id="Flow_1aed30d" sourceRef="_6_register-for-mobile-payment.bpmn" targetRef="Participant_0a4v14d" />
+    <bpmn:messageFlow id="Flow_1nwin5r" sourceRef="_7_update-customer-data.bpmn" targetRef="Participant_0jpde85" />
+    <bpmn:messageFlow id="Flow_0xfhtww" sourceRef="Participant_0a4v14d" targetRef="_4_create-credit-card.bpmn" />
+    <bpmn:messageFlow id="Flow_1f98or1" sourceRef="_5_send-credit-card-information.bpmn" targetRef="Participant_0a4v14d" />
+    <bpmn:messageFlow id="Flow_0hl7asy" sourceRef="Event_0cb4lez" targetRef="Participant_0p22tuj" />
+    <bpmn:messageFlow id="Flow_1qpt6c2" sourceRef="_3_validate-and-rate-customer.bpmn" targetRef="Participant_0p22tuj" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1xou3zo" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Credit Card Application Submitted">
+      <bpmn:outgoing>Flow_1xw8gdv</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1hobvgm" />
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_1dmyns3" name="Existing Customer?">
+      <bpmn:incoming>Flow_0mmpt5e</bpmn:incoming>
+      <bpmn:outgoing>Flow_0s812tc</bpmn:outgoing>
+      <bpmn:outgoing>Flow_04c4897</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_0s4j40g">
+      <bpmn:incoming>Flow_1xmelvs</bpmn:incoming>
+      <bpmn:incoming>Flow_04c4897</bpmn:incoming>
+      <bpmn:outgoing>Flow_094n60k</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_01f06hl" name="Cannot issue Credit Card">
+      <bpmn:incoming>Flow_0bwdp7k</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0hny9q7" />
+    </bpmn:endEvent>
+    <bpmn:parallelGateway id="Gateway_1oqsx50">
+      <bpmn:incoming>Flow_06pc5ng</bpmn:incoming>
+      <bpmn:outgoing>Flow_0t15mq0</bpmn:outgoing>
+      <bpmn:outgoing>Flow_16nvkck</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="Gateway_1lmcd5b">
+      <bpmn:incoming>Flow_1p4akl8</bpmn:incoming>
+      <bpmn:incoming>Flow_1n1n0xa</bpmn:incoming>
+      <bpmn:outgoing>Flow_10cfvaw</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="Event_0cb4lez" name="Credit Card Issued">
+      <bpmn:incoming>Flow_10cfvaw</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1e9ygsb" />
+    </bpmn:endEvent>
+    <bpmn:subProcess id="_1_check-whether-existing-customer.bpmn" name="Check whether Existing Customer">
+      <bpmn:incoming>Flow_1xw8gdv</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mmpt5e</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="_2_create-prospect.bpmn" name="Create Prospect">
+      <bpmn:incoming>Flow_0s812tc</bpmn:incoming>
+      <bpmn:outgoing>Flow_1xmelvs</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="_3_validate-and-rate-customer.bpmn" name="Validate &#38; Rate Customer">
+      <bpmn:incoming>Flow_094n60k</bpmn:incoming>
+      <bpmn:outgoing>Flow_06pc5ng</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="_4_create-credit-card.bpmn" name="Create Credit Card">
+      <bpmn:incoming>Flow_16nvkck</bpmn:incoming>
+      <bpmn:outgoing>Flow_1nghleg</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="_7_update-customer-data.bpmn" name="Update Customer Data">
+      <bpmn:incoming>Flow_0t15mq0</bpmn:incoming>
+      <bpmn:outgoing>Flow_1p4akl8</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="_5_send-credit-card-information.bpmn" name="Send Credit Card Information">
+      <bpmn:incoming>Flow_1nghleg</bpmn:incoming>
+      <bpmn:outgoing>Flow_041ty56</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:subProcess id="_6_register-for-mobile-payment.bpmn" name="Register for Mobile Payment">
+      <bpmn:incoming>Flow_041ty56</bpmn:incoming>
+      <bpmn:outgoing>Flow_1n1n0xa</bpmn:outgoing>
+    </bpmn:subProcess>
+    <bpmn:boundaryEvent id="Event_0j42lkf" name="Checks&#10;failed" attachedToRef="_3_validate-and-rate-customer.bpmn">
+      <bpmn:outgoing>Flow_0bwdp7k</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_1p6igu2" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_1nghleg" sourceRef="_4_create-credit-card.bpmn" targetRef="_5_send-credit-card-information.bpmn" />
+    <bpmn:sequenceFlow id="Flow_1n1n0xa" sourceRef="_6_register-for-mobile-payment.bpmn" targetRef="Gateway_1lmcd5b" />
+    <bpmn:sequenceFlow id="Flow_1p4akl8" sourceRef="_7_update-customer-data.bpmn" targetRef="Gateway_1lmcd5b" />
+    <bpmn:sequenceFlow id="Flow_10cfvaw" sourceRef="Gateway_1lmcd5b" targetRef="Event_0cb4lez" />
+    <bpmn:sequenceFlow id="Flow_16nvkck" sourceRef="Gateway_1oqsx50" targetRef="_4_create-credit-card.bpmn" />
+    <bpmn:sequenceFlow id="Flow_0t15mq0" sourceRef="Gateway_1oqsx50" targetRef="_7_update-customer-data.bpmn" />
+    <bpmn:sequenceFlow id="Flow_041ty56" sourceRef="_5_send-credit-card-information.bpmn" targetRef="_6_register-for-mobile-payment.bpmn" />
+    <bpmn:sequenceFlow id="Flow_04c4897" name="yes" sourceRef="Gateway_1dmyns3" targetRef="Gateway_0s4j40g" />
+    <bpmn:sequenceFlow id="Flow_1xmelvs" sourceRef="_2_create-prospect.bpmn" targetRef="Gateway_0s4j40g" />
+    <bpmn:sequenceFlow id="Flow_0bwdp7k" sourceRef="Event_0j42lkf" targetRef="Event_01f06hl" />
+    <bpmn:sequenceFlow id="Flow_06pc5ng" sourceRef="_3_validate-and-rate-customer.bpmn" targetRef="Gateway_1oqsx50" />
+    <bpmn:sequenceFlow id="Flow_094n60k" sourceRef="Gateway_0s4j40g" targetRef="_3_validate-and-rate-customer.bpmn" />
+    <bpmn:sequenceFlow id="Flow_0s812tc" name="no" sourceRef="Gateway_1dmyns3" targetRef="_2_create-prospect.bpmn" />
+    <bpmn:sequenceFlow id="Flow_0mmpt5e" sourceRef="_1_check-whether-existing-customer.bpmn" targetRef="Gateway_1dmyns3" />
+    <bpmn:sequenceFlow id="Flow_1xw8gdv" sourceRef="StartEvent_1" targetRef="_1_check-whether-existing-customer.bpmn" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="main">
+      <bpmndi:BPMNShape id="Participant_1tccln7_di" bpmnElement="Participant_1tccln7" isHorizontal="true">
+        <dc:Bounds x="129" y="172" width="1369" height="296" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1xw8gdv_di" bpmnElement="Flow_1xw8gdv">
+        <di:waypoint x="225" y="297" />
+        <di:waypoint x="259" y="297" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mmpt5e_di" bpmnElement="Flow_0mmpt5e">
+        <di:waypoint x="359" y="297" />
+        <di:waypoint x="388" y="297" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0s812tc_di" bpmnElement="Flow_0s812tc">
+        <di:waypoint x="438" y="297" />
+        <di:waypoint x="477" y="297" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="434" y="275" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_094n60k_di" bpmnElement="Flow_094n60k">
+        <di:waypoint x="656" y="297" />
+        <di:waypoint x="685" y="297" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06pc5ng_di" bpmnElement="Flow_06pc5ng">
+        <di:waypoint x="785" y="297" />
+        <di:waypoint x="845" y="297" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bwdp7k_di" bpmnElement="Flow_0bwdp7k">
+        <di:waypoint x="765" y="355" />
+        <di:waypoint x="765" y="410" />
+        <di:waypoint x="812" y="410" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="899" y="408" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xmelvs_di" bpmnElement="Flow_1xmelvs">
+        <di:waypoint x="577" y="297" />
+        <di:waypoint x="606" y="297" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04c4897_di" bpmnElement="Flow_04c4897">
+        <di:waypoint x="413" y="322" />
+        <di:waypoint x="413" y="370" />
+        <di:waypoint x="631" y="370" />
+        <di:waypoint x="631" y="322" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="422" y="329" width="17" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_041ty56_di" bpmnElement="Flow_041ty56">
+        <di:waypoint x="1175" y="230" />
+        <di:waypoint x="1220" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0t15mq0_di" bpmnElement="Flow_0t15mq0">
+        <di:waypoint x="870" y="322" />
+        <di:waypoint x="870" y="380" />
+        <di:waypoint x="1010" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16nvkck_di" bpmnElement="Flow_16nvkck">
+        <di:waypoint x="870" y="272" />
+        <di:waypoint x="870" y="230" />
+        <di:waypoint x="930" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10cfvaw_di" bpmnElement="Flow_10cfvaw">
+        <di:waypoint x="1395" y="297" />
+        <di:waypoint x="1432" y="297" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1p4akl8_di" bpmnElement="Flow_1p4akl8">
+        <di:waypoint x="1110" y="380" />
+        <di:waypoint x="1370" y="380" />
+        <di:waypoint x="1370" y="322" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1n1n0xa_di" bpmnElement="Flow_1n1n0xa">
+        <di:waypoint x="1320" y="230" />
+        <di:waypoint x="1370" y="230" />
+        <di:waypoint x="1370" y="272" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nghleg_di" bpmnElement="Flow_1nghleg">
+        <di:waypoint x="1030" y="230" />
+        <di:waypoint x="1075" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0ua1onp_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="189" y="279" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="179" y="322" width="57" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1dmyns3_di" bpmnElement="Gateway_1dmyns3" isMarkerVisible="true">
+        <dc:Bounds x="388" y="272" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="386" y="235" width="54" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0s4j40g_di" bpmnElement="Gateway_0s4j40g" isMarkerVisible="true">
+        <dc:Bounds x="606" y="272" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0m3hwuj_di" bpmnElement="Event_01f06hl">
+        <dc:Bounds x="812" y="392" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="798" y="435" width="65" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0zi9j21_di" bpmnElement="Gateway_1oqsx50">
+        <dc:Bounds x="845" y="272" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0v1som1_di" bpmnElement="Gateway_1lmcd5b">
+        <dc:Bounds x="1345" y="272" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0legfx1_di" bpmnElement="Event_0cb4lez">
+        <dc:Bounds x="1432" y="279" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1421" y="322" width="57" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0apueq2_di" bpmnElement="_1_check-whether-existing-customer.bpmn">
+        <dc:Bounds x="259" y="257" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_070aa4y_di" bpmnElement="_2_create-prospect.bpmn">
+        <dc:Bounds x="477" y="257" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_021pidv_di" bpmnElement="_3_validate-and-rate-customer.bpmn">
+        <dc:Bounds x="685" y="257" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0uj1kqo_di" bpmnElement="_4_create-credit-card.bpmn">
+        <dc:Bounds x="930" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1u06rln_di" bpmnElement="_7_update-customer-data.bpmn">
+        <dc:Bounds x="1010" y="340" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0pf7kc1_di" bpmnElement="_5_send-credit-card-information.bpmn">
+        <dc:Bounds x="1075" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1lohxv6_di" bpmnElement="_6_register-for-mobile-payment.bpmn">
+        <dc:Bounds x="1220" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_188m8i8_di" bpmnElement="Event_0j42lkf">
+        <dc:Bounds x="747" y="319" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="771" y="356" width="38" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_1porhi6_di" bpmnElement="Participant_0p22tuj" isHorizontal="true">
+        <dc:Bounds x="129" y="80" width="1369" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_09gvkj8_di" bpmnElement="Participant_0a4v14d" isHorizontal="true">
+        <dc:Bounds x="129" y="490" width="1369" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_0v8a9un_di" bpmnElement="Participant_01n3llv" isHorizontal="true">
+        <dc:Bounds x="129" y="570" width="1369" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_0d5u315_di" bpmnElement="Participant_0jpde85" isHorizontal="true">
+        <dc:Bounds x="129" y="650" width="1369" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_07ym8b3_di" bpmnElement="Participant_0geq9if" isHorizontal="true">
+        <dc:Bounds x="129" y="730" width="1369" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0fhqmoz_di" bpmnElement="Flow_0fhqmoz">
+        <di:waypoint x="207" y="140" />
+        <di:waypoint x="207" y="279" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0z4ua8d_di" bpmnElement="Flow_0z4ua8d">
+        <di:waypoint x="830" y="392" />
+        <di:waypoint x="830" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18fs2uw_di" bpmnElement="Flow_18fs2uw">
+        <di:waypoint x="705" y="337" />
+        <di:waypoint x="705" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0egihi2_di" bpmnElement="Flow_0egihi2">
+        <di:waypoint x="960" y="270" />
+        <di:waypoint x="960" y="490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1iz1ue0_di" bpmnElement="Flow_1iz1ue0">
+        <di:waypoint x="527" y="337" />
+        <di:waypoint x="527" y="650" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sim41h_di" bpmnElement="Flow_1sim41h">
+        <di:waypoint x="309" y="337" />
+        <di:waypoint x="309" y="650" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14ttfpv_di" bpmnElement="Flow_14ttfpv">
+        <di:waypoint x="1147" y="270" />
+        <di:waypoint x="1147" y="730" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1aed30d_di" bpmnElement="Flow_1aed30d">
+        <di:waypoint x="1270" y="270" />
+        <di:waypoint x="1270" y="490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nwin5r_di" bpmnElement="Flow_1nwin5r">
+        <di:waypoint x="1060" y="420" />
+        <di:waypoint x="1060" y="650" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0xfhtww_di" bpmnElement="Flow_0xfhtww">
+        <di:waypoint x="980" y="490" />
+        <di:waypoint x="980" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1f98or1_di" bpmnElement="Flow_1f98or1">
+        <di:waypoint x="1125" y="270" />
+        <di:waypoint x="1125" y="490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hl7asy_di" bpmnElement="Flow_0hl7asy">
+        <di:waypoint x="1450" y="279" />
+        <di:waypoint x="1450" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qpt6c2_di" bpmnElement="Flow_1qpt6c2">
+        <di:waypoint x="735" y="257" />
+        <di:waypoint x="735" y="140" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1k9ug2f">
+    <bpmndi:BPMNPlane id="BPMNPlane_052661r" bpmnElement="_2_create-prospect.bpmn" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_07htmix">
+    <bpmndi:BPMNPlane id="BPMNPlane_038ln6s" bpmnElement="_3_validate-and-rate-customer.bpmn" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1k2pn0r">
+    <bpmndi:BPMNPlane id="BPMNPlane_10o9suk" bpmnElement="_4_create-credit-card.bpmn" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1j4tnq6">
+    <bpmndi:BPMNPlane id="BPMNPlane_0wuh47k" bpmnElement="_7_update-customer-data.bpmn" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_0gd64sg">
+    <bpmndi:BPMNPlane id="BPMNPlane_0oe9f3b" bpmnElement="_6_register-for-mobile-payment.bpmn" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1sdkitu">
+    <bpmndi:BPMNPlane id="BPMNPlane_0x5854t" bpmnElement="_5_send-credit-card-information.bpmn" />
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1tcnzdh">
+    <bpmndi:BPMNPlane id="BPMNPlane_1insqaf" bpmnElement="_1_check-whether-existing-customer.bpmn" />
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

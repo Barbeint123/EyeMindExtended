@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0sh8pe0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:collaboration id="Collaboration_1fgsncp">
+    <bpmn:participant id="Participant_1jvzzf3" name="Send Credit Card Information" processRef="Process_0vdfp50" />
+    <bpmn:participant id="Participant_0a4v14d" name="Credit Card Master System" />
+    <bpmn:participant id="Participant_0geq9if" name="Output Management System" />
+    <bpmn:messageFlow id="Flow_0oza3f8" sourceRef="Activity_1qkvyw5" targetRef="Participant_0a4v14d" />
+    <bpmn:messageFlow id="Flow_1cl1ptd" sourceRef="_5_1_send-letter-to-customer.bpmn" targetRef="Participant_0geq9if" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_0vdfp50" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0wg2psx</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0wg2psx" sourceRef="StartEvent_1" targetRef="Activity_1qkvyw5" />
+    <bpmn:serviceTask id="Activity_1qkvyw5" name="Generate new PIN for Credit Card">
+      <bpmn:incoming>Flow_0wg2psx</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gkkis2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1gkkis2" sourceRef="Activity_1qkvyw5" targetRef="_5_1_send-letter-to-customer.bpmn" />
+    <bpmn:endEvent id="Event_0zeu27x">
+      <bpmn:incoming>Flow_06nuydg</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_06nuydg" sourceRef="_5_1_send-letter-to-customer.bpmn" targetRef="Event_0zeu27x" />
+    <bpmn:subProcess id="_5_1_send-letter-to-customer.bpmn" name="Send Letter to Customer">
+      <bpmn:incoming>Flow_1gkkis2</bpmn:incoming>
+      <bpmn:outgoing>Flow_06nuydg</bpmn:outgoing>
+    </bpmn:subProcess>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1fgsncp">
+      <bpmndi:BPMNShape id="Participant_1jvzzf3_di" bpmnElement="Participant_1jvzzf3" isHorizontal="true">
+        <dc:Bounds x="129" y="52" width="550" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_06nuydg_di" bpmnElement="Flow_06nuydg">
+        <di:waypoint x="530" y="177" />
+        <di:waypoint x="592" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gkkis2_di" bpmnElement="Flow_1gkkis2">
+        <di:waypoint x="370" y="177" />
+        <di:waypoint x="430" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wg2psx_di" bpmnElement="Flow_0wg2psx">
+        <di:waypoint x="215" y="177" />
+        <di:waypoint x="270" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0c1gls0_di" bpmnElement="Activity_1qkvyw5">
+        <dc:Bounds x="270" y="137" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0zeu27x_di" bpmnElement="Event_0zeu27x">
+        <dc:Bounds x="592" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11q6pep_di" bpmnElement="_5_1_send-letter-to-customer.bpmn">
+        <dc:Bounds x="430" y="137" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_09gvkj8_di" bpmnElement="Participant_0a4v14d" isHorizontal="true">
+        <dc:Bounds x="129" y="350" width="550" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_07ym8b3_di" bpmnElement="Participant_0geq9if" isHorizontal="true">
+        <dc:Bounds x="129" y="460" width="550" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0oza3f8_di" bpmnElement="Flow_0oza3f8">
+        <di:waypoint x="320" y="217" />
+        <di:waypoint x="320" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cl1ptd_di" bpmnElement="Flow_1cl1ptd">
+        <di:waypoint x="480" y="217" />
+        <di:waypoint x="480" y="460" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_0b2h76y">
+    <bpmndi:BPMNPlane id="BPMNPlane_0q30yax" bpmnElement="_5_1_send-letter-to-customer.bpmn" />
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

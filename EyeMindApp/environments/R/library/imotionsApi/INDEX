@@ -1,0 +1,36 @@
+getRespondent           Get a specific respondent from a study.
+getRespondentIntervals
+                        Get the list of time intervals (imIntervalList)
+                        for a given respondent.
+getRespondentSensors    Get all sensors available for a given
+                        respondent.
+getRespondents          Get respondents from a study.
+getRespondents.imSegment
+                        Get respondents for a specific segment.
+getRespondents.imStimulus
+                        Get respondents for a specific stimulus.
+getRespondents.imStudy
+                        Get all respondents from a study.
+getSegment              Get a specific segment from a study.
+getSegments             Get all segments from a study.
+getSensorData           Download data corresponding to a specific
+                        sensor (signals/metrics).
+getStimuli              Get all stimuli from a study.
+getStimulus             Get a specific stimulus from a study.
+imConnection            Create a connection with the iMotions API.
+imStudy                 Load an iMotions study by id.
+imotionsApi-package     New iMotions R API
+listLoadedStudies       List studies that have been loaded in the
+                        current session.
+listStudies             List studies available.
+stopSubjectNotApplicable
+                        Indicate that R markdown knitting should be
+                        stopped since the current
+                        stimulus/respondent/segment is not applicable
+                        for this notebook.
+truncateSignalsByIntervals
+                        Truncate signals data based on given intervals.
+unloadStudies           Remove studies that have been loaded in the
+                        current session.
+uploadSensorData        Create a new sensor for a specific respondent
+                        in a study.

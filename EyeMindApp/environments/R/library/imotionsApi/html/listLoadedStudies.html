@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: List studies that have been loaded in the current session.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for listLoadedStudies {imotionsApi}"><tr><td>listLoadedStudies {imotionsApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>List studies that have been loaded in the current session.</h2>
+
+<h3>Description</h3>
+
+<p>More detailed information about a study can be retrieved using <code><a href="imStudy.html">imStudy</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+listLoadedStudies()
+</pre>
+
+
+<h3>Value</h3>
+
+<p>A list of the studies that have been loaded in the current session.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connection &lt;- imotionsApi::imConnection("xxxxxxxx")
+studies &lt;- imotionsApi::listStudies(connection)
+studyId &lt;- studies$id[1]
+study &lt;- imotionsApi::imStudy(connection, studyId)
+listLoadedStudies()
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsApi</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

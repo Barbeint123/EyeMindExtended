@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: iMotions Data Library</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for imotionsData-package {imotionsData}"><tr><td>imotionsData-package {imotionsData}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>iMotions Data Library</h2>
+
+<h3>Description</h3>
+
+<p>A client for accessing data from the iMotions Biometrics Research Platform.
+</p>
+
+
+<h3>Details</h3>
+
+<p>Use tokens (found on a study's R Analysis page) to load information from the
+iMotions API
+</p>
+
+
+<h3>See Also</h3>
+
+<p>Useful links:
+</p>
+
+<ul>
+<li> <p><a href="https://imotions.com">https://imotions.com</a>
+</p>
+</li>
+<li> <p><a href="https://my.imotions.com/#studies">https://my.imotions.com/#studies</a>
+</p>
+</li></ul>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+myToken &lt;- "xxxxx-xxxx-xxxxx-xxxxx"
+connection &lt;- imotionsData::connectRemote(myToken)
+studies &lt;- imotionsData::listStudies(connection)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsData</em> version 1.8.5 <a href="00Index.html">Index</a>]</div>
+</body></html>

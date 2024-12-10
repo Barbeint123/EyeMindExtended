@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Get a specific segment from a study.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getSegment {imotionsApi}"><tr><td>getSegment {imotionsApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Get a specific segment from a study.</h2>
+
+<h3>Description</h3>
+
+<p>Available segments can be found with <code><a href="getSegments.html">getSegments</a></code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getSegment(study, segmentId)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>study</code></td>
+<td>
+<p>An imStudy object as returned from <code><a href="imStudy.html">imStudy</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>segmentId</code></td>
+<td>
+<p>The id of the segment you would like to retrieve.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>An imSegment object (data.table) containing the segment of interest.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connection &lt;- imotionsApi::imConnection("xxxxxxxx")
+studies &lt;- imotionsApi::listStudies(connection)
+study &lt;- imotionsApi::imStudy(connection, studies$id[1])
+segments &lt;- imotionsApi::getSegments(study)
+segment &lt;- imotionsApi::getSegment(study, segments$id[1])
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsApi</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

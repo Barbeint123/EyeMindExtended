@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Truncate signals data based on given intervals.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for truncateSignalsByIntervals {imotionsApi}"><tr><td>truncateSignalsByIntervals {imotionsApi}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Truncate signals data based on given intervals.</h2>
+
+<h3>Description</h3>
+
+<p>Any interval combination can be asked. Timestamps falling between an interval start/end will be kept, others will be
+discarded.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+truncateSignalsByIntervals(signals, intervals)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>signals</code></td>
+<td>
+<p>An imSignals object as returned by <code><a href="getSensorData.html">getSensorData</a></code> or a data.table including a
+&quot;Timestamp&quot; column that needs to be cut.</p>
+</td></tr>
+<tr valign="top"><td><code>intervals</code></td>
+<td>
+<p>An imInterval or imIntervalList object with start/end of data to subset as given by
+<code><a href="getRespondentIntervals.html">getRespondentIntervals</a></code>.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A truncated imSignals object.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+connection &lt;- imotionsApi::imConnection("xxxxxxxx")
+studies &lt;- imotionsApi::listStudies(connection)
+study &lt;- imotionsApi::imStudy(connection, studies$id[1])
+respondents &lt;- imotionsApi::getRespondents(study)
+sensors &lt;- imotionsApi::getRespondentSensors(study, respondents[1, ])
+signals &lt;- imotionsApi::getSensorData(study, sensors[3, ])
+intervals &lt;- imotionsApi::getRespondentIntervals(study, respondents[1, ])
+
+# get the 3 first intervals
+dataCut &lt;- imotionsApi::truncateSignalsByIntervals(signals, intervals[1:3, ])
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsApi</em> version 2.0.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

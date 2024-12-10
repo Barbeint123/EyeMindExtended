@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: List sample sources for a stimuli</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for listSampleSources {imotionsData}"><tr><td>listSampleSources {imotionsData}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>List sample sources for a stimuli</h2>
+
+<h3>Description</h3>
+
+<p>This tells you which sample sources were recorded for a given stimuli.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+listSampleSources(connection, studyId, stimulusId)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>connection</code></td>
+<td>
+<p>As returned from connect function.</p>
+</td></tr>
+<tr valign="top"><td><code>studyId</code></td>
+<td>
+<p>The study id</p>
+</td></tr>
+<tr valign="top"><td><code>stimulusId</code></td>
+<td>
+<p>The stimulus for which you would like to list samples.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>A sample is a collection of data from a given respondent during exposure to a stimulus.
+</p>
+<p>A sample source is the source of the sample data. It can be determined from the eventSourceType which may include
+Sensor, CustomEvent, or InternalEvent.
+</p>
+<p>CustomEvent comes from a custom data import.
+</p>
+<p>InternalEvent comes from internal events, such as mouse clicks and so on.
+</p>
+<p>Samples for an individual respondent can be found using imotionsData::listRespondentSamples
+</p>
+<p>Studies can be found with imotionsData::listStudies.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame containing a list of sample sources within this study.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+studies &lt;- imotionsData::listStudies(connection)
+studyId &lt;- studies$id[1]
+stimuli &lt;- imotionsData::listStimuli(connection, studyId)
+sampleSources &lt;- imotionsData::listSampleSources(connection, studyId, stimuli$id[1])
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>imotionsData</em> version 1.8.5 <a href="00Index.html">Index</a>]</div>
+</body></html>
