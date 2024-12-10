@@ -13,6 +13,16 @@
 
 3. [User Manual](#User-Manual)
 
+# Overview
+
+EyeMind is a tool that supports eye-tracking experiments on large and interactive process models. Among the key features of EyeMind are the following:
+
+- Experimental workflow configuration
+- Automated mapping of gazes to dynamic areas of interests (corresponding to the process model elements)
+- Analysis of eye-tracking data: gaze correction, fixation filter, heatmaps and overlays
+
+The following video demonstrates the features of EyeMind https://andaloussi.org/SoftwareX2023/demo.html.
+
 # Hardware and Software Requirements
 
 ## Hardware Requirements
