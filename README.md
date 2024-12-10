@@ -1,17 +1,17 @@
 # Table of Content
-4. [Hardware and Software Requirements](#Hardware-and-Software-Requirements)
+1. [Hardware and Software Requirements](#Hardware-and-Software-Requirements)
     
-   4.1. [Hardware Requirements](#Hardware-Requirements)
+   1.1. [Hardware Requirements](#Hardware-Requirements)
 
-    4.2. [Software Requirements](#Software-Requirements)
+    1.2. [Software Requirements](#Software-Requirements)
 
-5. [Installation Procedure](#Installation-Procedure)
+2. [Installation Procedure](#Installation-Procedure)
 
-    5.1. [Eye-Tracking Server Installation](#Eye-Tracking-Server-Installation)
+    2.1. [Eye-Tracking Server Installation](#Eye-Tracking-Server-Installation)
 
-    5.2 [EyeMind App Installation](#EyeMind-App-Installation)
+    2.2 [EyeMind App Installation](#EyeMind-App-Installation)
 
-6. [User Manual](#User-Manual)
+3. [User Manual](#User-Manual)
 
 # Hardware and Software Requirements
 
