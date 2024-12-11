@@ -138,6 +138,7 @@ I have written a more detailed textual description below. The application is ess
 ![Record Button](record_button.png) 
 
   - **Provide details**:
+![Data Collection](data_collection_settings.png) 
     - X screen dimension in pixels.
     - Y screen dimension in pixels.
     - Screen distance in centimeters.
