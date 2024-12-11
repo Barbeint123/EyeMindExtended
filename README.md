@@ -11,7 +11,7 @@
 
     2.2 [EyeMind App Installation](#EyeMind-App-Installation)
 
-3. [User Manual](#User-Manual)
+3. [Features](#Features)
 
 # Overview
 
@@ -25,21 +25,25 @@ The following video demonstrates the features of EyeMind https://andaloussi.org/
 
 # Hardware and Software Requirements
 
-## Hardware Requirements
+### Hardware Requirements:
+- Eyetracker with Tobii SDK access.  
+  *Note: This application has only been tested with **Tobii Pro X3-120**, but it should work with other Tobii eyetrackers that support the SDK.*
+- Webcam.  
 
-- To run EyeMind for data collection, you need an eye-tracking device and a Computer Machine with Windows 10 or 11.
+These devices must be connected to the computer running the application. Note that some Tobii eye-trackers require a connection to a USB 3 port.
 
-    EyeMind uses the Tobii Pro SDK (i.e., https://developer.tobiipro.com/python/python-getting-started.html) supporting Tobii Screen-based Eye-trackers (i.e., https://www.tobii.com/products/eye-trackers/screen-based). The tool was tested on Tobii X3-120 (i.e., https://connect.tobii.com/s/x3-downloads?language=en_US)
+### Software Requirements:
+- **64-bit Windows 10 or 11**  
+  *Note: Windows 11 is currently supported but will not be in future versions with wristband data.*
+- [**Python 3.8.6**](https://www.python.org/downloads/release/python-386/) (choose AMD64 for Win32).
+- [**Pip**](https://phoenixnap.com/kb/install-pip-windows).
+- [**NPM & Node.js**](https://nodejs.org/en/download/package-manager).
+- [**Tobii 1.10.1 SDK**](https://pypi.org/project/tobii-research/1.10.1/).
+- [**Tobii Eye Tracker Manager**](https://developer.tobiipro.com/eyetrackermanager/etm-installation-information.html).  
+  - *For discontinued eyetrackers, download **Tobii Pro Eye Tracker Manager 2.6.1** instead from [here](https://connect.tobii.com/s/article/new-Tobii-Pro-SDK-and-ETM?language=en_US).*
+- [**Visual Studio 2017**](https://visualstudio.microsoft.com/vs/older-downloads/)  
+  *Alternatively, install the 64-bit Visual C++ Redistributable Package from [here](https://aka.ms/vs/16/release/vc_redist.x64.exe).*
 
-- To run EyeMind for data analysis, you need a Computer Machine with Windows 10 or 11.
-
-## Software Requirements
-
-- Git (i.e., https://git-scm.com/downloads) to clone the EyeMind repository from github.com
-- Python 3.8.6 (i.e., https://www.python.org/downloads/release/python-386/) (Choose the distribution AMD64 on win32 which is compatible with Tobii Pro SDK)
-- Pip (i.e., https://phoenixnap.com/kb/install-pip-windows) (for a quick installation of Python Libraries)
-- Npm and node.js (i.e., https://nodejs.org/en/download/) to run EyeMind
-- Tobii Pro Eye Tracker Manager (i.e., https://developer.tobiipro.com/eyetrackermanager/etm-installation-information.html) to install the eye-tracking device and conduct the calibration of the device
 
 # Installation Procedure
 
@@ -93,6 +97,7 @@ Follow the steps below to install the Eye-Tracking Server:
     ```
 
 
-# User Manual
+# Features
+The EyeMind features is explained in the following video https://andaloussi.org/SoftwareX2023/demo.html. 
 
-The video in  https://andaloussi.org/SoftwareX2023/demo.html illustrates the procedures explained in this section.
+The added OpenFace functionality is incorporated behind the scenes, and its output data is found under the same output directory as the EyeMind functionality.
