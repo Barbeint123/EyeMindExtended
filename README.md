@@ -104,11 +104,14 @@ I have written a more detailed textual description below. The application is ess
 
 #### New Session
 - Create a new experimental workflow:
+- 
   - **Linking of sub-processes** (enables sub-processes):
+![Linking of sub-processes](linking_of_sub-processes.png)
     - Choose one (No support / Symbol links / Breadcrumb navigation)
       - The collapsed subprocesses should have the same ID as the sub-process file.
 
   - **Drop model files**:
+![Drop model files](adding_bpmn.png)
     - Drag in `.bpmn` files you will use.
     - Drag them in the order you want them to appear (do not drag all at once).
     - Differentiate between main processes:
@@ -117,6 +120,7 @@ I have written a more detailed textual description below. The application is ess
         - Set group numbers.
 
   - **Drop questions CSV files**:
+![Add questions](add_questions.png)
     - Use the following CSV format:
       ```
       id,question,type,options,model-group
@@ -131,7 +135,7 @@ I have written a more detailed textual description below. The application is ess
       - `model-group`: `<integer>`
 
   - Click the **record button** in the upper-right corner to save the workflow:
-    ![Record Button](path/to/image.png) <!-- Replace with actual image path if necessary -->
+![Record Button](record_button.png) 
 
   - **Provide details**:
     - X screen dimension in pixels.
@@ -172,15 +176,19 @@ I have written a more detailed textual description below. The application is ess
     - Load files.
 
   - **Fixation detection**:
+![Fixation Detection](fixation_detection.png)
     - Follow the on-screen prompts.
 
   - **Gaze projection**:
+![Gaze Projection](gaze_projection.png)
     - Process data for projection.
 
   - **Heatmap**:
+![Heatmap](heatmap.png)
     - Note: Heatmap will not be enabled unless fixation detection is completed.
 
   - **Export**:
+![Export](export_icon.png)
     - Choose which data you want to export:
       - Analysis file (`json`).
       - Gaze data (`csv`).
