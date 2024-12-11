@@ -17,9 +17,7 @@
 
 # Overview
 
-TODO
-overview of features and necessity
-link to paper
+An integration of  [EyeMind](https://github.com/aminobest/EyeMind) with [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace). Read the paper [paper](./paper.pdf) for details explaining background and the necessity of such a tool.
 
 # Hardware and Software Requirements
 
