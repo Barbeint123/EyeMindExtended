@@ -100,7 +100,7 @@ The added OpenFace functionality is incorporated behind the scenes, and its outp
 
 I have written a more detailed textual description below. The application is esssentially divided into two: Eye-tracking (setting up experiment, and conducting it) and Analysis (analysing the results, and preparing it for export). 
 
-    ![Home Screen](home_screen.png)
+![Home Screen](home_screen.png)
 
 ### Eye-Tracking
 
