@@ -1,27 +1,25 @@
 # Table of Content
-1. [Hardware and Software Requirements](#Hardware-and-Software-Requirements)
+1. [Overview](#Overview)
+
+2. [Hardware and Software Requirements](#Hardware-and-Software-Requirements)
     
-   1.1. [Hardware Requirements](#Hardware-Requirements)
+   2.1. [Hardware Requirements](#Hardware-Requirements)
 
-    1.2. [Software Requirements](#Software-Requirements)
+    2.2. [Software Requirements](#Software-Requirements)
 
-2. [Installation Procedure](#Installation-Procedure)
+3. [Installation Procedure](#Installation-Procedure)
 
-    2.1. [Eye-Tracking Server Installation](#Eye-Tracking-Server-Installation)
+    3.1. [Eye-Tracking Server Installation](#Eye-Tracking-Server-Installation)
 
-    2.2 [EyeMind App Installation](#EyeMind-App-Installation)
+    3.2 [EyeMind App Installation](#EyeMind-App-Installation)
 
-3. [Features](#Features)
+4. [Features](#Features)
 
 # Overview
 
-EyeMind is a tool that supports eye-tracking experiments on large and interactive process models. Among the key features of EyeMind are the following:
-
-- Experimental workflow configuration
-- Automated mapping of gazes to dynamic areas of interests (corresponding to the process model elements)
-- Analysis of eye-tracking data: gaze correction, fixation filter, heatmaps and overlays
-
-The following video demonstrates the features of EyeMind https://andaloussi.org/SoftwareX2023/demo.html.
+TODO
+overview of features and necessity
+link to paper
 
 # Hardware and Software Requirements
 
