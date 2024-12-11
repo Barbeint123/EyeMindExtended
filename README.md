@@ -17,39 +17,35 @@
 
 # Overview
 
-An integration of  [EyeMind](https://github.com/aminobest/EyeMind) with [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace). Read the paper [paper](./paper.pdf) for details explaining background and the necessity of such a tool.
+An integration of  [EyeMind](https://github.com/aminobest/EyeMind) with [OpenFace](https://github.com/TadasBaltrusaitis/OpenFace). Read the [paper](./paper.pdf) for details explaining background and the necessity of such a tool.
 
 # Hardware and Software Requirements
 
 ### Hardware Requirements:
-- Eyetracker with Tobii SDK access.  
-  *Note: This application has only been tested with **Tobii Pro X3-120**, but it should work with other Tobii eyetrackers that support the SDK.*
-- Webcam.  
+- Eyetracker with Tobii SDK access 
+  (*Note: This application has only been tested with **Tobii Pro X3-120**, but it should work with other Tobii eyetrackers that support the SDK.*)
+- Webcam
 
 These devices must be connected to the computer running the application. Note that some Tobii eye-trackers require a connection to a USB 3 port.
 
 ### Software Requirements:
 - **64-bit Windows 10 or 11**  
-  *Note: Windows 11 is currently supported but will not be in future versions with wristband data.*
-- [**Python 3.8.6**](https://www.python.org/downloads/release/python-386/) (choose AMD64 for Win32).
-- [**Pip**](https://phoenixnap.com/kb/install-pip-windows).
-- [**NPM & Node.js**](https://nodejs.org/en/download/package-manager).
-- [**Tobii 1.10.1 SDK**](https://pypi.org/project/tobii-research/1.10.1/).
-- [**Tobii Eye Tracker Manager**](https://developer.tobiipro.com/eyetrackermanager/etm-installation-information.html).  
-  - *For discontinued eyetrackers, download **Tobii Pro Eye Tracker Manager 2.6.1** instead from [here](https://connect.tobii.com/s/article/new-Tobii-Pro-SDK-and-ETM?language=en_US).*
+  *Note: Windows 11 is currently supported but will not be in future versions with wristband data*
+- [**Python 3.8.6**](https://www.python.org/downloads/release/python-386/) (choose AMD64 for Win32)
+- [**Pip**](https://phoenixnap.com/kb/install-pip-windows)
+- [**NPM & Node.js**](https://nodejs.org/en/download/package-manager)
+- [**Tobii 1.10.1 SDK**](https://pypi.org/project/tobii-research/1.10.1/)
+- [**Tobii Eye Tracker Manager**](https://developer.tobiipro.com/eyetrackermanager/etm-installation-information.html)  
+  - *For discontinued eyetrackers, download **Tobii Pro Eye Tracker Manager 2.6.1** instead from [here](https://connect.tobii.com/s/article/new-Tobii-Pro-SDK-and-ETM?language=en_US)*
 - [**Visual Studio 2017**](https://visualstudio.microsoft.com/vs/older-downloads/)  
-  *Alternatively, install the 64-bit Visual C++ Redistributable Package from [here](https://aka.ms/vs/16/release/vc_redist.x64.exe).*
+  *Alternatively, install the 64-bit Visual C++ Redistributable Package from [here](https://aka.ms/vs/16/release/vc_redist.x64.exe)*
 
 
 # Installation Procedure
 
-EyeMind is composed of two services: the Eye-Tracking Server and the EyeMind App. This guide will walk you through the installation process for both services.
+The EyeMind component composed of two services: the Eye-Tracking Server and the EyeMind App. This guide will walk you through the installation process for both services, as well as how to set up the OpenFace integration.
 
-Start by cloning EyeMind to your local machine. In the following we will assume that the cloning folder is called "EyeMind".
-
-    
-    cd <root path>
-    git clone https://github.com/aminobest/EyeMind
+First, download the zip and extract the files.
 
 ### Eye-Tracking Server Installation
 
@@ -59,7 +55,7 @@ Follow the steps below to install the Eye-Tracking Server:
 - **Navigate to the EyeTrackingServer folder:**
 
     ```
-    cd <root path>\EyeMind\EyeTrackingServer
+    cd \EyeMind\EyeTrackingServer
     ```
 
 - **Install Python dependencies:** Once you are inside the EyeTrackingServer folder, install the required Python dependencies using the following command:
@@ -74,10 +70,10 @@ Follow the steps below to install the Eye-Tracking Server:
 ### EyeMind App Installation
 
 
-- **Navigate to the EyeMind App folder:** Open a new terminal window, and navigate to the EyeMind App folder using the command:
+- **Navigate to the EyeMind App folder:** 
 
     ```
-    cd <root path>\EyeMind\EyeMindApp\
+    cd \EyeMind\EyeMindApp\
     ```
 
 - **Install dependencies:** Install the necessary dependencies using the command:
@@ -98,11 +94,13 @@ The EyeMind features is explained in the following video https://andaloussi.org/
 
 The added OpenFace functionality is incorporated behind the scenes, and its output data is found under the same output directory as the EyeMind functionality.
 
-I have written a more detailed textual description below. The application is esssentially divided into two: Eye-tracking (setting up experiment, and conducting it) and Analysis (analysing the results, and preparing it for export). 
+I have written a more detailed textual description below. The application is esssentially divided into two: Eye-tracking (setting up experiment, and conducting it) and Analysis (analysing the results (OpenFace comes in here), and preparing it for export). 
 
-    ![Home Screen](home_screen.png)
+![Home Screen](home_screen.png)
 
 ### Eye-Tracking
+
+![Eye Tracking Menu](eye_tracking_menu.png)
 
 #### New Session
 - Create a new experimental workflow:
@@ -148,6 +146,7 @@ I have written a more detailed textual description below. The application is ess
     - Saves to an external file, which can be loaded using "Load Session."
     - Data is saved under `EyeMind/EyeMindApp/output data`.
 
+![Load Session](load_session.png)
 #### Load Session
 - Load a previous setup:
   - Saved sessions are stored in `\EyeMind\EyeMindApp\output data`.
@@ -163,6 +162,7 @@ I have written a more detailed textual description below. The application is ess
 - Data is saved to `\EyeMind\EyeMindApp\output data`.
 
 ---
+![Analysis](analysis.png)
 
 ### Analysis
 - Perform analysis on the dataset:
