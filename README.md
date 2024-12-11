@@ -100,6 +100,8 @@ I have written a more detailed textual description below. The application is ess
 
 ### Eye-Tracking
 
+![Eye Tracking Menu](eye_tracking_menu.png)
+
 #### New Session
 - Create a new experimental workflow:
   - **Linking of sub-processes** (enables sub-processes):
@@ -144,6 +146,7 @@ I have written a more detailed textual description below. The application is ess
     - Saves to an external file, which can be loaded using "Load Session."
     - Data is saved under `EyeMind/EyeMindApp/output data`.
 
+![Load Session](load_session.png)
 #### Load Session
 - Load a previous setup:
   - Saved sessions are stored in `\EyeMind\EyeMindApp\output data`.
@@ -159,6 +162,7 @@ I have written a more detailed textual description below. The application is ess
 - Data is saved to `\EyeMind\EyeMindApp\output data`.
 
 ---
+![Analysis](analysis.png)
 
 ### Analysis
 - Perform analysis on the dataset:
