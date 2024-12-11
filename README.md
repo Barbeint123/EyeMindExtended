@@ -93,7 +93,94 @@ Follow the steps below to install the Eye-Tracking Server:
     ```
 
 
-# Features
+# Features / How to Use
 The EyeMind features is explained in the following video https://andaloussi.org/SoftwareX2023/demo.html. 
 
 The added OpenFace functionality is incorporated behind the scenes, and its output data is found under the same output directory as the EyeMind functionality.
+
+For textual descriptions, see below. The application is esssentially divided into two: Eye-tracking (setting up experiment, and conducting it) and Analysis (analysing the results, and preparing it for export). 
+
+### Eye-Tracking
+
+#### New Session
+- Create a new experimental workflow:
+  - **Linking of sub-processes** (enables sub-processes):
+    - Choose one (No support / Symbol links / Breadcrumb navigation)
+      - The collapsed subprocesses should have the same ID as the sub-process file.
+
+  - **Drop model files**:
+    - Drag in `.bpmn` files you will use.
+    - Drag them in the order you want them to appear (do not drag all at once).
+    - Differentiate between main processes:
+      - Divide models into groups by:
+        - Set main `.bpmn`.
+        - Set group numbers.
+
+  - **Drop questions CSV files**:
+    - Use the following CSV format:
+      ```
+      id,question,type,options,model-group
+      1,"Question?",multiple-choice,Yes;No;I don't know,1
+      2,"Question 2?",multiple-choice,Yes;No;I don't know,2
+      ```
+    - Field descriptions:
+      - `id`: `<integer>`
+      - `question`: `"string"`
+      - `type`: `multiple-choice` / `open-question`
+      - `options`: `<option 1>;<option 2>;<option 3> ...`
+      - `model-group`: `<integer>`
+
+  - Click the **record button** in the upper-right corner to save the workflow:
+    ![Record Button](path/to/image.png) <!-- Replace with actual image path if necessary -->
+
+  - **Provide details**:
+    - X screen dimension in pixels.
+    - Y screen dimension in pixels.
+    - Screen distance in centimeters.
+    - Monitor size in inches.
+    - Recording ID.
+    - *(Optional)* Participant ID, Experiment ID, Experimenter ID.
+    - Additional notes.
+
+  - **Save session**:
+    - Saves to an external file, which can be loaded using "Load Session."
+    - Data is saved under `EyeMind/EyeMindApp/output data`.
+
+#### Load Session
+- Load a previous setup:
+  - Saved sessions are stored in `\EyeMind\EyeMindApp\output data`.
+  - Ensure:
+    - The eye tracker is calibrated.
+    - The eye-tracking server is running:
+      ```bash
+      <root path>\EyeMind\EyeTrackingServer
+      python main.py
+      ```
+    - Participant ID is provided (through the recording button).
+
+- Data is saved to `\EyeMind\EyeMindApp\output data`.
+
+---
+
+### Analysis
+- Perform analysis on the dataset:
+
+  - **Drop BPM EyeMind gaze files**:
+    - Choose the JSON collected-data file(s) created during testing (from `\EyeMind\EyeMindApp\output data`).
+    - Load files.
+
+  - **Fixation detection**:
+    - Follow the on-screen prompts.
+
+  - **Gaze projection**:
+    - Process data for projection.
+
+  - **Heatmap**:
+    - Note: Heatmap will not be enabled unless fixation detection is completed.
+
+  - **Export**:
+    - Choose which data you want to export:
+      - Analysis file (`json`).
+      - Gaze data (`csv`).
+      - Fixation data (`csv`).
+
