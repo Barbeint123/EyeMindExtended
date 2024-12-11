@@ -98,7 +98,9 @@ The EyeMind features is explained in the following video https://andaloussi.org/
 
 The added OpenFace functionality is incorporated behind the scenes, and its output data is found under the same output directory as the EyeMind functionality.
 
-For textual descriptions, see below. The application is esssentially divided into two: Eye-tracking (setting up experiment, and conducting it) and Analysis (analysing the results, and preparing it for export). 
+I have written a more detailed textual description below. The application is esssentially divided into two: Eye-tracking (setting up experiment, and conducting it) and Analysis (analysing the results, and preparing it for export). 
+
+    ![Home Screen](home_screen.png)
 
 ### Eye-Tracking
 
