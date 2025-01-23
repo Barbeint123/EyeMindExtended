@@ -96,22 +96,22 @@ The added OpenFace functionality is incorporated behind the scenes, and its outp
 
 I have written a more detailed textual description below. The application is esssentially divided into two: Eye-tracking (setting up experiment, and conducting it) and Analysis (analysing the results (OpenFace comes in here), and preparing it for export). 
 
-![Home Screen](home_screen.png)
+![Home Screen](ReadmePictures/home_screen.png)
 
 ### Eye-Tracking
 
-![Eye Tracking Menu](eye_tracking_menu.png)
+![Eye Tracking Menu](ReadmePictures/eye_tracking_menu.png)
 
 #### New Session
 - Create a new experimental workflow:
 - 
   - **Linking of sub-processes** (enables sub-processes):
-![Linking of sub-processes](linking_of_sub-processes.png)
+![Linking of sub-processes](ReadmePictures/linking_of_sub-processes.png)
     - Choose one (No support / Symbol links / Breadcrumb navigation)
       - The collapsed subprocesses should have the same ID as the sub-process file.
 
   - **Drop model files**:
-![Drop model files](adding_bpmn.png)
+![Drop model files](ReadmePictures/adding_bpmn.png)
     - Drag in `.bpmn` files you will use.
     - Drag them in the order you want them to appear (do not drag all at once).
     - Differentiate between main processes:
@@ -120,7 +120,7 @@ I have written a more detailed textual description below. The application is ess
         - Set group numbers.
 
   - **Drop questions CSV files**:
-![Add questions](add_questions.png)
+![Add questions](ReadmePictures/add_questions.png)
     - Use the following CSV format:
       ```
       id,question,type,options,model-group
@@ -135,10 +135,10 @@ I have written a more detailed textual description below. The application is ess
       - `model-group`: `<integer>`
 
   - Click the **record button** in the upper-right corner to save the workflow:
-![Record Button](record_button.png) 
+![Record Button](ReadmePictures/record_button.png) 
 
   - **Provide details**:
-![Data Collection](data_collection_settings.png) 
+![Data Collection](ReadmePictures/data_collection_settings.png) 
     - X screen dimension in pixels.
     - Y screen dimension in pixels.
     - Screen distance in centimeters.
@@ -151,7 +151,7 @@ I have written a more detailed textual description below. The application is ess
     - Saves to an external file, which can be loaded using "Load Session."
     - Data is saved under `EyeMind/EyeMindApp/output data`.
 
-![Load Session](load_session.png)
+![Load Session](ReadmePictures/load_session.png)
 #### Load Session
 - Load a previous setup:
   - Saved sessions are stored in `\EyeMind\EyeMindApp\output data`.
@@ -167,7 +167,7 @@ I have written a more detailed textual description below. The application is ess
 - Data is saved to `\EyeMind\EyeMindApp\output data`.
 
 ---
-![Analysis](analysis.png)
+![Analysis](ReadmePictures/analysis.png)
 
 ### Analysis
 - Perform analysis on the dataset:
@@ -177,19 +177,19 @@ I have written a more detailed textual description below. The application is ess
     - Load files.
 
   - **Fixation detection**:
-![Fixation Detection](fixation_detection.png)
+![Fixation Detection](ReadmePictures/fixation_detection.png)
     - Follow the on-screen prompts.
 
   - **Gaze projection**:
-![Gaze Projection](gaze_projection.png)
+![Gaze Projection](ReadmePictures/gaze_projection.png)
     - Process data for projection.
 
   - **Heatmap**:
-![Heatmap](heatmap.png)
+![Heatmap](ReadmePictures/heatmap.png)
     - Note: Heatmap will not be enabled unless fixation detection is completed.
 
   - **Export**:
-![Export](export_icon.png)
+![Export](ReadmePictures/export_icon.png)
     - Choose which data you want to export:
       - Analysis file (`json`).
       - Gaze data (`csv`).
